@@ -10,8 +10,9 @@ const Navbar = () => {
 
     const [visible,setVisible] = useState(false);
     const {t} = useTranslation();
-
-    const {setShowSearch , getCartCount , navigate, token, setToken, setCartItems} = useContext(ShopContext);
+    
+    const {i18n,setShowSearch , getCartCount , navigate, token, setToken, setCartItems} = useContext(ShopContext);
+    console.log(i18n)
 
     const logout = () => {
         navigate('/login')

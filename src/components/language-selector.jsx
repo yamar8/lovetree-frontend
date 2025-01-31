@@ -1,5 +1,7 @@
-import React from 'react'
-import { useTranslation } from 'react-i18next';
+import React, { useContext, useState } from 'react'
+import { ShopContext } from '../context/ShopContext';
+
+
 
 const languages = [
     {code: "en", lang: "English"},
@@ -9,7 +11,8 @@ const languages = [
 
 export const LanguageSelector = () => {
  
-  const {i18n} = useTranslation();
+      const {i18n} = useContext(ShopContext);
+  
   
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
