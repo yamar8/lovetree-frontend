@@ -1,11 +1,11 @@
-import i18next from 'i18next';
+import {i18next} from 'i18next';
 import { initReactI18next } from 'react-i18next';
-import I18nextBrowserLanguageDetector from 'i18next-browser-languagedetector';
+import i18nextBrowserLanguageDetector from 'i18next-browser-languagedetector';
 
 // import LanguageDetector from 'i18next-browser-languagedetector';
 
 
-i18next.use(I18nextBrowserLanguageDetector).use(initReactI18next).init({
+i18next.use(i18nextBrowserLanguageDetector).use(initReactI18next).init({
     debug: true,
  lng: 'he', // if you're using a language detector, do not define the lng option
   resources: {
