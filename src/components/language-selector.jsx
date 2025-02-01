@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { ShopContext } from '../context/ShopContext';
 
 
@@ -17,6 +17,11 @@ export const LanguageSelector = () => {
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
   };
+
+  useEffect(() => {
+    document.body.dir = i18n.dir();
+  },[i18n, i18n.language])
+
 
   return (
     <div className='group-hover:block hidden absolute dropdown-menu right-0 pt-4'>

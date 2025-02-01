@@ -22,10 +22,10 @@ const Navbar = () => {
     }
 
   return (
-    <div className='flex flex-row-reverse items-center justify-between py-5 font-medium'>
+    <div className='flex items-center justify-between py-5 font-medium'>
       <Link to='/'><img src={assets.logo} className='w-36' alt="" /></Link>
 
-      <ul className='hidden sm:flex gap-5 flex-row-reverse text-sm text-gray-700'>
+      <ul className='hidden sm:flex gap-5 text-sm text-gray-700'>
         
         <NavLink to='/' className='flex flex-col items-center gap-1'>
             <p>{t('home')}</p>
@@ -62,9 +62,9 @@ const Navbar = () => {
                 {token && 
                 <div className='group-hover:block hidden absolute dropdown-menu right-0 pt-4'>
                     <div className='flex flex-col gap-2 w-36 py-3 px-5  bg-slate-100 text-gray-500 rounded'>
-                        <p className='cursor-pointer hover:text-black'>My Profile</p>
-                        <p onClick={()=>navigate('/orders')} className='cursor-pointer hover:text-black'>Orders</p>
-                        <p onClick={logout} className='cursor-pointer hover:text-black'>Logout</p>
+                        <p className='cursor-pointer hover:text-black'>{t("my_profile")}</p>
+                        <p onClick={()=>navigate('/orders')} className='cursor-pointer hover:text-black'>{t("orders")}</p>
+                        <p onClick={logout} className='cursor-pointer hover:text-black'>{t("logout")}</p>
                     </div>
                 </div>}
             </div> 
@@ -82,10 +82,10 @@ const Navbar = () => {
                         <img className='h-4 rotate-180' src={assets.dropdown_icon} alt="" />
                         <p>Back</p>
                     </div>
-                    <NavLink onClick={()=>setVisible(false)} className='py-2 pl-6 border' to='/'>HOME</NavLink>
-                    <NavLink onClick={()=>setVisible(false)} className='py-2 pl-6 border' to='/collection'>COLLECTION</NavLink>
-                    <NavLink onClick={()=>setVisible(false)} className='py-2 pl-6 border' to='/about'>ABOUT</NavLink>
-                    <NavLink onClick={()=>setVisible(false)} className='py-2 pl-6 border' to='/contact'>CONTACT</NavLink>
+                    <NavLink onClick={()=>setVisible(false)} className='py-2 pl-6 border' to='/'>{t('home')}</NavLink>
+                    <NavLink onClick={()=>setVisible(false)} className='py-2 pl-6 border' to='/collection'>{t('collection')}</NavLink>
+                    <NavLink onClick={()=>setVisible(false)} className='py-2 pl-6 border' to='/about'>{t('about')}</NavLink>
+                    <NavLink onClick={()=>setVisible(false)} className='py-2 pl-6 border' to='/contact'>{t('contact')}</NavLink>
                 </div>
         </div>
 
