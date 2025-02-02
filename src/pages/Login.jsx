@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import { ShopContext } from '../context/ShopContext';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import Glogin from '../components/Glogin';
 
 const Login = () => {
 
@@ -68,6 +69,7 @@ const Login = () => {
             }
         </div>
         <button className='bg-black text-white font-light px-8 py-2 mt-4'>{currentState === 'Login' ? 'Sign In' : 'Sign Up'}</button>
+        <Glogin/>
     </form>
   )
 }
