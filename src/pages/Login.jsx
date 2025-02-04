@@ -74,6 +74,7 @@ const Login = () => {
   }, [token]);
 
   return (
+    <>
     <form onSubmit={onSubmitHandler} className='flex flex-col items-center w-[90%] sm:max-w-96 m-auto mt-14 gap-4 text-gray-800'>
       <div className='inline-flex items-center gap-2 mb-2 mt-10'>
         <p className='prata-regular text-3xl'>{currentState}</p>
@@ -129,12 +130,14 @@ const Login = () => {
       <div className="w-full flex flex-col items-center gap-2">
         <p className="text-sm text-gray-600">Or continue with</p>
         <GoogleLogin
-          onSuccess={handleGoogleSuccess}
-          onError={handleGoogleFailure}
-          useOneTap
-        />
+            onSuccess={handleGoogleSuccess}
+            onError={handleGoogleFailure}
+            useOneTap
+          />
       </div>
     </form>
+
+          </>
   );
 };
 
