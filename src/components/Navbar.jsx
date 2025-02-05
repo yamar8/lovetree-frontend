@@ -12,7 +12,7 @@ const Navbar = () => {
     const {t} = useTranslation();
     
     const {i18n,setShowSearch , getCartCount , navigate, token, setToken, setCartItems} = useContext(ShopContext);
-    console.log(i18n)
+    // console.log(i18n)
 
     const logout = () => {
         navigate('/login')
@@ -62,7 +62,7 @@ const Navbar = () => {
                 {token && 
                 <div className='group-hover:block hidden absolute dropdown-menu right-0 pt-4'>
                     <div className='flex flex-col gap-2 w-36 py-3 px-5  bg-slate-100 text-gray-500 rounded'>
-                        <p className='cursor-pointer hover:text-black'>{t("my_profile")}</p>
+                        <p onClick={()=>navigate('/profile')} className='cursor-pointer hover:text-black'>{t("my_profile")}</p>
                         <p onClick={()=>navigate('/orders')} className='cursor-pointer hover:text-black'>{t("orders")}</p>
                         <p onClick={logout} className='cursor-pointer hover:text-black'>{t("logout")}</p>
                     </div>
