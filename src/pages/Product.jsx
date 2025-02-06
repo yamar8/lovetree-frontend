@@ -23,7 +23,10 @@ const Product = () => {
     })
 
   }
-
+  const reviewsCalculate = () => {
+    Console.log(productData.rating)
+    return productData.reviews.length
+  }
   useEffect(() => {
     fetchProductData();
   }, [productId,products])
@@ -56,7 +59,7 @@ const Product = () => {
               <img src={assets.star_icon} alt="" className="w-3 5" />
               <img src={assets.star_icon} alt="" className="w-3 5" />
               <img src={assets.star_dull_icon} alt="" className="w-3 5" />
-              <p className='pl-2'>(122)</p>
+              <p className='pl-2'>{productData.reviews.length}</p>
           </div>
           <p className='mt-5 text-3xl font-medium'>{currency}{productData.price}</p>
           <p className='mt-5 text-gray-500 md:w-4/5'>{productData.description}</p>
@@ -77,7 +80,13 @@ const Product = () => {
           </div>
         </div>
       </div>
-
+      {
+                productData.reviews.map((item,index)=>(
+                  <div className='w-[24%] sm:w-full sm:mb-3 flex-shrink-0 cursor-pointer' key={index} alt="" >
+                    {item.comment}
+                  </div>
+                ))
+              }        
       {/* ---------- Description & Review Section ------------- */}
       <div className='mt-20'>
         <div className='flex'>

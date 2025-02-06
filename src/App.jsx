@@ -19,8 +19,8 @@ import Profile from './pages/profile'
 
 const App = () => {
   return (
-    <div className='px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]'>
-      <ToastContainer />
+    <div className="px-4 sm:px-6 md:px-[6vw] lg:px-[8vw] xl:px-[10vw] overflow-hidden">
+      <ToastContainer rtl={true}/>
       <Navbar />
       <SearchBar />
       <Routes>
