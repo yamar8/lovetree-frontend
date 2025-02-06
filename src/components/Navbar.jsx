@@ -13,7 +13,7 @@ const Navbar = () => {
     
     const {i18n,setShowSearch , getCartCount , navigate, token, setToken, setCartItems} = useContext(ShopContext);
     // console.log(i18n)
-
+    
     const logout = () => {
         navigate('/login')
         localStorage.removeItem('token')
@@ -72,20 +72,20 @@ const Navbar = () => {
                 <img src={assets.cart_icon} className='w-5 min-w-5' alt="" />
                 <p className='absolute right-[-5px] bottom-[-5px] w-4 text-center leading-4 bg-black text-white aspect-square rounded-full text-[8px]'>{getCartCount()}</p>
             </Link> 
-            <img onClick={()=>setVisible(true)} src={assets.menu_icon} className='w-5 cursor-pointer sm:hidden' alt="" /> 
+            <img onClick={()=>setVisible(true)}  src={i18next.dir()==="rtl"?assets.menu_icon_rtl:assets.menu_icon} className='w-5 cursor-pointer sm:hidden' alt="" /> 
       </div>
-
+                    {console.log(i18next.dir())}
         {/* Sidebar menu for small screens */}
         <div className={`absolute top-0 right-0 bottom-0 overflow-hidden bg-white transition-all ${visible ? 'w-full' : 'w-0'}`}>
                 <div className='flex flex-col text-gray-600'>
                     <div onClick={()=>setVisible(false)} className='flex items-center gap-4 p-3 cursor-pointer'>
-                        <img className='h-4 rotate-180' src={assets.dropdown_icon} alt="" />
+                        <img className='h-4 rotate-180' src={i18next.dir()==="rtl"?assets.dropdown_icon_rtl:assets.dropdown_icon} alt="" />
                         <p>{t("back")}</p>
                     </div>
-                    <NavLink onClick={()=>setVisible(false)} className='py-2 pl-6 border' to='/'>{t('home')}</NavLink>
-                    <NavLink onClick={()=>setVisible(false)} className='py-2 pl-6 border' to='/collection'>{t('collection')}</NavLink>
-                    <NavLink onClick={()=>setVisible(false)} className='py-2 pl-6 border' to='/about'>{t('about')}</NavLink>
-                    <NavLink onClick={()=>setVisible(false)} className='py-2 pl-6 border' to='/contact'>{t('contact')}</NavLink>
+                    <NavLink onClick={()=>setVisible(false)} className='py-2 pr-6 pl-6 border' to='/'>{t('home')}</NavLink>
+                    <NavLink onClick={()=>setVisible(false)} className='py-2 pr-6 pl-6 border' to='/collection'>{t('collection')}</NavLink>
+                    <NavLink onClick={()=>setVisible(false)} className='py-2 pr-6 pl-6 border' to='/about'>{t('about')}</NavLink>
+                    <NavLink onClick={()=>setVisible(false)} className='py-2 pr-6 pl-6 border' to='/contact'>{t('contact')}</NavLink>
                 </div>
         </div>
 

@@ -6,7 +6,7 @@ import { toast } from 'react-toastify';
 
 const languages = [
     {code: "en", lang: "English"},
-    {code: "he", lang: "Hebrew"}
+    {code: "he", lang: "עברית"}
 ]
 
 
@@ -17,7 +17,11 @@ export const LanguageSelector = () => {
   
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng.code);
-    toast.success("Language changed to " + lng.lang);
+    if(lng.code === "he"){
+      toast.success("השפה השתנתה ל " + lng.lang);
+    }else{
+      toast.success("Language changed to " + lng.lang);
+    }
 
   };
 
