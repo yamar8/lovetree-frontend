@@ -24,7 +24,13 @@ i18next.use(i18nextBrowserLanguageDetector).use(initReactI18next).init({
         total:"Total",
         my_profile:"My Profile",
         orders: "Orders",
-        logout: "Logout"
+        logout: "Logout",
+        back: "Back",
+        filters: "FILTERS",
+        categories :"CATEGORIES",
+        type: "TYPE",
+        search :"Search",
+        men: "Men"
       }
     },
     he: {
@@ -41,7 +47,17 @@ i18next.use(i18nextBrowserLanguageDetector).use(initReactI18next).init({
             total:'סה"כ',
             my_profile:"הפרופיל שלי",
             orders: "הזמנות",
-            logout: "התנתק"
+            logout: "התנתק",
+            back: "חזור",
+            filters: "סינון",
+            categories :"קטגוריות",
+            type: "סוג",
+            search: "חיפוש",
+            men: "גברים"
+
+
+
+
         }
     }
   }

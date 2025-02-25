@@ -6,12 +6,14 @@ import ProductItem from '../components/ProductItem';
 
 const Collection = () => {
 
-  const { products , search , showSearch } = useContext(ShopContext);
+  const { i18n, products , search , showSearch } = useContext(ShopContext);
   const [showFilter,setShowFilter] = useState(false);
   const [filterProducts,setFilterProducts] = useState([]);
   const [category,setCategory] = useState([]);
   const [subCategory,setSubCategory] = useState([]);
   const [sortType,setSortType] = useState('relavent')
+  const [categories, setCategories] = useState([]);
+  const {t} = i18n;
 
   const toggleCategory = (e) => {
 
@@ -23,6 +25,26 @@ const Collection = () => {
     }
 
   }
+  useEffect(() => {
+
+
+  }, [])
+  
+// const fetchCategories = async () => {
+//   try {
+
+//     const response = await axios.get(backendUrl + '/api/product/list')
+//     if (response.data.success) {
+//       setCategories(response.data)
+//     } else {
+//         toast.error(response.data.message)
+//     }
+
+// } catch (error) {
+//     console.log(error)
+//     toast.error(error.message)
+// }
+// }
 
   const toggleSubCategory = (e) => {
 
@@ -87,28 +109,26 @@ const Collection = () => {
       
       {/* Filter Options */}
       <div className='min-w-60'>
-        <p onClick={()=>setShowFilter(!showFilter)} className='my-2 text-xl flex items-center cursor-pointer gap-2'>FILTERS
+        <p onClick={()=>setShowFilter(!showFilter)} className='my-2 text-xl flex items-center cursor-pointer gap-2'>{t("filters")}
           <img className={`h-3 sm:hidden ${showFilter ? 'rotate-90' : ''}`} src={assets.dropdown_icon} alt="" />
         </p>
         {/* Category Filter */}
         <div className={`border border-gray-300 pl-5 py-3 mt-6 ${showFilter ? '' :'hidden'} sm:block`}>
-          <p className='mb-3 text-sm font-medium'>CATEGORIES</p>
-          <div className='flex flex-col gap-2 text-sm font-light text-gray-700'>
-            <p className='flex gap-2'>
-              <input className='w-3' type="checkbox" value={'Men'} onChange={toggleCategory}/> Men
-            </p>
-            <p className='flex gap-2'>
-              <input className='w-3' type="checkbox" value={'Women'} onChange={toggleCategory}/> Women
-            </p>
-            <p className='flex gap-2'>
-              <input className='w-3' type="checkbox" value={'Kids'} onChange={toggleCategory}/> kids
-            </p>
+          <p className='ltr:ml-3 rtl:mr-3 mb-3 text-sm font-medium'>{t("categories")}</p>
+          <div className='ltr:ml-3 rtl:mr-3 flex flex-col gap-2 text-sm font-light text-gray-700'>
+            {
+              [...new Set(products.map(item => item.category))].map((category, index) => (
+  <p key={index} className="flex gap-2">
+    <input key={index} className="w-3" type="checkbox" value={category} onChange={toggleCategory} /> {category}
+  </p>
+))
+            }
           </div>
         </div>
         {/* SubCategory Filter */}
         <div className={`border border-gray-300 pl-5 py-3 my-5 ${showFilter ? '' :'hidden'} sm:block`}>
-          <p className='mb-3 text-sm font-medium'>TYPE</p>
-          <div className='flex flex-col gap-2 text-sm font-light text-gray-700'>
+          <p className='ltr:ml-3 rtl:mr-3 mb-3 text-sm font-medium'>{t("type")}</p>
+          <div className='ltr:ml-3 rtl:mr-3 flex flex-col gap-2 text-sm font-light text-gray-700'>
             <p className='flex gap-2'>
               <input className='w-3' type="checkbox" value={'Topwear'} onChange={toggleSubCategory}/> Topwear
             </p>
